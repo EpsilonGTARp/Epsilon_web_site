@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Site officiel - Epsilon RP</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
-<body>
-  <!-- Logo indépendant et animé au-dessus du header -->
-  <img src="assets/logo.png" alt="Logo Epsilon" class="logo-floating" />
+<body data-theme="light">
+  <!-- LOGO CLIQUABLE -->
+  <a href="index.html">
+    <img src="assets/logo.png" alt="Logo Epsilon" class="logo-floating" />
+  </a>
 
   <header>
-    <div class="navbar">
-      <!-- Nav supprimée car inutile -->
-    </div>
+    <!-- BOUTON DARK MODE EN HAUT À DROITE DU HEADER -->
+    <button id="dark-toggle" aria-label="Mode sombre">🌙</button>
+
+    <div class="navbar"></div>
+
     <div class="hero">
       <h1>EPSILON RP</h1>
       <p>Site officiel du serveur de jeu de rôle sur le thème Grand Theft Auto</p>
       <div class="buttons">
         <a href="https://epsilonrpstore.tip4serv.com/" class="btn btn-primary" target="_blank">Boutique</a>
         <a href="https://discord.gg/hKCVHPB8Be" class="btn btn-discord" target="_blank">Discord</a>
-        <a href="https://fenyx.gitbook.io/epsilon-rp" class="btn btn-secondary" target="_blank">GitBook</a>
+        <a href="pages/gitbook/gitbook.html" class="btn btn-secondary" target="_blank">GitBook</a>
       </div>
     </div>
   </header>
@@ -31,15 +36,29 @@
       <div class="cards">
         <div class="card">
           <h3>Informations</h3>
-          <p>Serveur GTA RP francophone basé sur l’immersion, le respect et le divertissement. Rejoignez une communauté active avec des événements réguliers.</p>
+          <p>
+            Serveur GTA RP francophone basé sur l’immersion, le respect et le divertissement.
+            Rejoignez une communauté active avec des événements réguliers.
+          </p>
         </div>
         <div class="card">
           <h3>Fonctionnalités</h3>
-          <p>Systèmes avancés, économie dynamique, métiers variés, mapping exclusif et scripts personnalisés pour une expérience unique.</p>
+          <p>
+            Systèmes avancés, économie dynamique, métiers variés, mapping exclusif et scripts
+            personnalisés pour une expérience unique.
+          </p>
         </div>
         <div class="card">
           <h3>Support</h3>
-          <p>Notre staff est disponible pour vous accompagner. Rejoignez-nous sur Discord pour toute question ou assistance.</p>
+          <p>
+            Notre staff est disponible pour vous accompagner. Rejoignez-nous sur Discord pour toute question ou assistance.
+          </p>
+        </div>
+        <div class="card reglement-card" onclick="window.location.href='pages/reglement.html'">
+          <h3>Règlements</h3>
+          <p>
+            Consultez nos règles générales et celles du serveur Discord pour une expérience respectueuse et agréable.
+          </p>
         </div>
       </div>
     </section>

@@ -225,3 +225,151 @@ header {
   animation: fadeUp 1s ease-out forwards;
   animation-delay: 1.6s;
 }
+
+/* Onglets pour règlement */
+.tabs-container {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.tab-btn {
+  background: var(--powder-blue);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+  background: var(--royal-purple);
+  color: var(--white);
+}
+
+.tab-content {
+  display: none;
+  max-width: 800px;
+  margin: auto;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  color: var(--russian-violet);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Carte règlement spéciale */
+.reglement-card {
+  background: var(--powder-blue);
+  cursor: pointer;
+}
+
+.reglement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* === DARK MODE — ADAPTÉ À LA CHARTE EPSILON === */
+body.dark-mode {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Header + Footer */
+body.dark-mode header {
+  background: linear-gradient(to right, #21174C, #362661); /* Russian Violet gradient */
+}
+
+body.dark-mode .footer {
+  background: #21174C;
+  color: #ffffff;
+}
+
+/* Cartes */
+body.dark-mode .card,
+body.dark-mode .reglement-card {
+  background: #362661 !important; /* Russian violet foncé */
+  color: #D6A2EE; /* Texte doux violet clair */
+  box-shadow: 0 10px 25px rgba(214, 162, 238, 0.08); /* ombre légère violette */
+}
+
+body.dark-mode .card h3,
+body.dark-mode .card p {
+  color: #D6A2EE;
+}
+
+/* Boutons */
+body.dark-mode .btn-primary,
+body.dark-mode .btn-discord {
+  background: linear-gradient(to right, #362661, #744FB6); /* Gradient foncé */
+  color: #ffffff;
+}
+
+body.dark-mode .btn-secondary {
+  background: #1e1e2f;
+  color: #D6A2EE;
+  border: 2px solid #744FB6;
+}
+
+/* Tabs (page règlement) */
+body.dark-mode .tab-btn {
+  background: #2c2c3e;
+  color: #D6A2EE;
+}
+
+body.dark-mode .tab-btn.active,
+body.dark-mode .tab-btn:hover {
+  background: #744FB6;
+  color: #ffffff;
+}
+
+body.dark-mode .tab-content {
+  background: #21174C;
+  color: #D6A2EE;
+  box-shadow: 0 10px 25px rgba(214, 162, 238, 0.1);
+}
+
+/* Titres et paragraphes */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+  color: #ffffff;
+}
+
+/* === DARK MODE TOGGLE BUTTON === */
+#dark-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  cursor: pointer;
+  z-index: 1001;
+  color: #ffffff;
+  transition: transform 0.2s ease-in-out;
+}
+
+#dark-toggle:hover {
+  transform: scale(1.15);
+}
+
+/* Améliore visuel si en mode clair */
+body:not(.dark-mode) #dark-toggle {
+  color: #000000;
+}
