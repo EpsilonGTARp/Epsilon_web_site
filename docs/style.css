@@ -1,0 +1,227 @@
+:root {
+  --royal-purple: #744FB6;
+  --vista-blue: #8591E2;
+  --russian-violet: #21174C;
+  --powder-blue: #A8CAE9;
+  --wisteria: #D6A2EE;
+  --lilac: #C494C5;
+  --ultra-violet: #574776;
+  --black: #000000;
+  --white: #ffffff;
+  --bg-light: #f5f4ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, var(--bg-light), #ffffff);
+  color: var(--russian-violet);
+}
+
+main {
+  flex: 1;
+}
+
+/* === HEADER === */
+header {
+  background: linear-gradient(to right, var(--royal-purple), var(--vista-blue));
+  padding-top: 10px; /* réduit pour équilibrer avec logo flottant */
+  padding-bottom: 20px;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+}
+
+/* === LOGO FLOTTANT === */
+.logo-floating {
+  width: clamp(140px, 20vw, 200px); /* Responsive */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+/* === TITRE ET TEXTE === */
+.hero h1 {
+  font-size: 3em;
+  margin-top: 20px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+  margin: 10px 0;
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+/* === BOUTONS === */
+.buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin: 10px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, var(--royal-purple), var(--vista-blue));
+  color: var(--white);
+  border: none;
+}
+
+.btn-discord {
+  background: linear-gradient(to right, #5865F2, var(--vista-blue));
+  color: var(--white);
+  border: none;
+}
+
+.btn-secondary {
+  background: linear-gradient(to right, #ffffff, #f8f8ff);
+  color: var(--royal-purple);
+  border: 2px solid var(--royal-purple);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* === SECTION À PROPOS === */
+.apropos {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.apropos h2 {
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.card {
+  background: var(--powder-blue);
+  padding: 25px;
+  border-radius: 16px;
+  width: 300px;
+  box-shadow: 0 10px 25px rgba(117, 79, 182, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card h3 {
+  color: var(--russian-violet);
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95em;
+  color: var(--ultra-violet);
+}
+
+/* === FOOTER === */
+.footer {
+  background: linear-gradient(to right, var(--royal-purple), var(--vista-blue));
+  color: var(--white);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9em;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .logo-floating {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    width: 140px;
+  }
+
+  header {
+    padding-top: 10px;
+  }
+
+  .hero h1 {
+    font-size: 2.2em;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* === ANIMATIONS === */
+@keyframes logoSlideIn {
+  0% {
+    transform: translateY(-80px) scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(10px) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === Application des animations === */
+.logo-floating {
+  animation: logoSlideIn 1.2s ease-out forwards;
+}
+
+.hero h1 {
+  opacity: 0;
+  animation: fadeUp 1s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+.hero p {
+  opacity: 0;
+  animation: fadeUp 1s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+.buttons {
+  opacity: 0;
+  animation: fadeUp 1s ease-out forwards;
+  animation-delay: 1.6s;
+}
