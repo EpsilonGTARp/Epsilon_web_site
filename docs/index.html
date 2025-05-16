@@ -8,27 +8,30 @@
   <script defer src="script.js"></script>
 </head>
 <body data-theme="light">
-  <!-- LOGO CLIQUABLE -->
-  <a href="index.html">
-    <img src="assets/logo.png" alt="Logo Epsilon" class="logo-floating" />
-  </a>
-
+  <!-- HEADER PRINCIPAL -->
   <header>
     <!-- BOUTON DARK MODE EN HAUT À DROITE DU HEADER -->
     <button id="dark-toggle" aria-label="Mode sombre">🌙</button>
 
-    <div class="navbar"></div>
+    <!-- LOGO CENTRÉ AU-DESSUS DU TITRE -->
+    <div class="logo-header-wrapper">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Logo Epsilon" class="logo-in-header" />
+      </a>
+    </div>
 
     <div class="hero">
       <h1>EPSILON RP</h1>
       <p>Site officiel du serveur de jeu de rôle sur le thème Grand Theft Auto</p>
-      <div class="buttons">
-        <a href="https://epsilonrpstore.tip4serv.com/" class="btn btn-primary" target="_blank">Boutique</a>
-        <a href="https://discord.gg/hKCVHPB8Be" class="btn btn-discord" target="_blank">Discord</a>
-        <a href="pages/gitbook/gitbook.html" class="btn btn-secondary" target="_blank">GitBook</a>
-      </div>
     </div>
   </header>
+
+  <!-- NAVIGATION EN DESSOUS DU HEADER -->
+  <nav class="buttons-container">
+    <a href="https://epsilonrpstore.tip4serv.com/" class="btn btn-primary" target="_blank">Boutique</a>
+    <a href="https://discord.gg/hKCVHPB8Be" class="btn btn-discord" target="_blank">Discord</a>
+    <a href="pages/gitbook/gitbook.html" class="btn btn-secondary" target="_blank">GitBook</a>
+  </nav>
 
   <main>
     <section class="apropos">
@@ -48,18 +51,12 @@
             personnalisés pour une expérience unique.
           </p>
         </div>
-        <div class="card">
+        <a href="https://discord.gg/nhaBRK4fJP" class="card" target="_blank" style="text-decoration: none;">
           <h3>Support</h3>
-          <p>
-            Notre staff est disponible pour vous accompagner. Rejoignez-nous sur Discord pour toute question ou assistance.
-          </p>
-        </div>
-        <div class="card reglement-card" onclick="window.location.href='pages/reglement.html'">
-          <h3>Règlements</h3>
-          <p>
-            Consultez nos règles générales et celles du serveur Discord pour une expérience respectueuse et agréable.
-          </p>
-        </div>
+            <p>
+              Notre staff est disponible pour vous accompagner. Rejoignez-nous sur Discord pour toutes questions ou en cliquant sur la card qui vous enverra directement 🎫▸ᴛɪᴄᴋᴇᴛs
+            </p>
+        </a>
       </div>
     </section>
   </main>
