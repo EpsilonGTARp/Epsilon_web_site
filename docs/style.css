@@ -280,3 +280,23 @@ body.dark-mode h3,
 body.dark-mode p {
   color: #ffffff;
 }
+
+.headings-sidebar {
+  margin-top: 1rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.heading-link {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.heading-link:hover {
+  color: var(--highlight-color);
+  text-decoration: underline;
+}

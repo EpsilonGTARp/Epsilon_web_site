@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (savedTheme === "dark") {
     body.classList.add("dark-mode");
     body.setAttribute("data-theme", "dark");
-    toggle.textContent = "☀️";
+    if (toggle) toggle.textContent = "☀️";
   } else {
     body.setAttribute("data-theme", "light");
   }
@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     input.addEventListener('input', () => {
       const query = input.value.toLowerCase();
       resultsBox.innerHTML = '';
-
       if (query.length < 2) return;
 
       const filtered = pages.filter(p => p.title.toLowerCase().includes(query));
@@ -58,29 +57,79 @@ document.addEventListener("DOMContentLoaded", () => {
   // === CHARGEMENT DYNAMIQUE DES PAGES ===
   const mainContent = document.querySelector('.main-content');
 
+  function injectHeadingsSidebar() {
+    const headingsSidebar = document.getElementById("headingsSidebar");
+    if (!headingsSidebar || !mainContent) return;
+
+    headingsSidebar.innerHTML = "";
+    const headings = mainContent.querySelectorAll("h2");
+
+    headings.forEach((h2, index) => {
+      if (!h2.id) h2.id = `heading-${index}`;
+
+      const link = document.createElement("a");
+      link.href = `#${h2.id}`;
+      link.textContent = h2.textContent;
+      link.classList.add("heading-link");
+
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.getElementById(h2.id);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+
+      headingsSidebar.appendChild(link);
+    });
+  }
+
   function loadPage(url) {
-    fetch(url)
-      .then(response => response.text())
+    const baseUrl = url.split("#")[0];
+    const hash = url.includes("#") ? url.split("#")[1] : null;
+
+    fetch(baseUrl)
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.text();
+      })
       .then(html => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         const newContent = doc.querySelector('.main-content');
 
-        if (newContent && mainContent) {
-          mainContent.innerHTML = newContent.innerHTML;
-          window.history.pushState(null, '', url);
-          window.scrollTo(0, 0);
-        } else {
-          console.warn('Aucun .main-content trouvé dans la page chargée');
+        if (!newContent || !mainContent) throw new Error("Pas de .main-content trouvé");
+
+        mainContent.innerHTML = newContent.innerHTML;
+
+        // ❌ Supprimé volontairement pour ne pas modifier l’URL :
+        // window.history.pushState(null, '', url);
+
+        injectHeadingsSidebar();
+
+        if (hash) {
+          setTimeout(() => {
+            const anchor = document.getElementById(hash);
+            if (anchor) {
+              anchor.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }, 50);
         }
       })
-      .catch(error => console.error('Erreur de chargement :', error));
+      .catch(error => {
+        console.error('Erreur de chargement :', error);
+        mainContent.innerHTML = `<div class="main-error">Erreur de chargement de la page whitelist.<br><small>${error.message}</small></div>`;
+      });
   }
 
   // Sidebar gauche + liens next
   document.querySelectorAll('.gitbook-sidebar a, .next-link').forEach(link => {
     link.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
+
+      // ✅ Exception pour les liens vers index.html → navigation normale
+      if (href && href.includes("index.html")) return;
+
       if (href && !href.startsWith('#')) {
         e.preventDefault();
         loadPage(href);
@@ -92,4 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('popstate', () => {
     loadPage(location.pathname);
   });
+
+  // === CHARGER LA PAGE WHITELIST PAR DÉFAUT ===
+  const currentPage = window.location.pathname.split("/").pop();
+  if (currentPage === "gitbook.html") {
+    loadPage("sections/whitelist.html");
+  }
 });

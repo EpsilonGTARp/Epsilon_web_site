@@ -1,0 +1,72 @@
+/* Style principal de la section whitelist */
+.main-content {
+  background-color: #f7f6ff;
+  padding: 60px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(116, 79, 182, 0.08);
+}
+
+/* Titre principal */
+.main-content .title {
+  font-size: 2.2em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #21174C;
+  text-align: left;
+}
+
+.main-content .pipe {
+  color: #744FB6;
+  font-weight: 500;
+}
+
+/* Texte d’introduction */
+.main-content .intro {
+  font-size: 1.05em;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+/* Bloc "Next" */
+.next-section {
+  background-color: #fdfdfd;
+  border: 1px solid #e2e2e2;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.next-section:hover {
+  transform: translateY(-3px);
+}
+
+.next-label {
+  font-size: 0.85em;
+  color: #777;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.next-link {
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #21174C;
+  display: inline-flex;
+  align-items: center;
+}
+
+.arrow {
+  margin-left: 10px;
+  color: #744FB6;
+  font-size: 1.2em;
+  transition: margin-left 0.2s ease;
+}
+
+.next-link:hover .arrow {
+  margin-left: 15px;
+}
