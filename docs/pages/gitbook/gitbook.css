@@ -2,6 +2,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+:root {
+  --royal-purple: #744FB6;
+  --vista-blue: #8591E2;
+  --russian-violet: #21174C;
+  --powder-blue: #A8CAE9;
+  --wisteria: #D6A2EE;
+  --lilac: #C494C5;
+  --ultra-violet: #574776;
+  --black: #000000;
+  --white: #ffffff;
+  --bg-light: #f5f4ff;
+  --bg-dark: #1e1b2e;
+  --main-light: #A8CAE9;
+  --main-dark: #2d2049;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -14,7 +30,7 @@ body {
   flex: 1;
 }
 
-/* === SIDEBAR === */
+/* === SIDEBAR GAUCHE === */
 .gitbook-sidebar {
   width: 350px;
   min-width: 300px;
@@ -22,12 +38,30 @@ body {
   background: linear-gradient(to bottom, var(--royal-purple), var(--vista-blue));
   color: var(--white);
   padding: 30px 20px;
-  padding-top: 120px; /* réserve de la place pour le logo */
+  padding-top: 120px;
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.gitbook-sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.burger-menu {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  z-index: 1000;
+  cursor: pointer;
 }
 
 .logo-small {
@@ -88,17 +122,16 @@ body {
   color: var(--white);
 }
 
-
 /* === MAIN CONTENT === */
-
 .gitbook-content,
 .main-content {
   flex: 1;
   padding: 50px 40px;
-  background-color: var(--bg-light);
+  background-color: var(--main-light);
   color: var(--russian-violet);
   max-width: 900px;
   margin: auto;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .main-content h1 {
@@ -106,11 +139,6 @@ body {
   font-weight: 700;
   margin-bottom: 1rem;
   color: #1f1f1f;
-}
-
-.main-content .pipe {
-  color: #aaa;
-  font-weight: 400;
 }
 
 .main-content p {
@@ -155,82 +183,7 @@ body {
   margin-left: 1rem;
 }
 
-.last-update {
-  font-size: 0.75rem;
-  color: #aaa;
-  margin-top: 2rem;
-}
-
-/* === HEADINGS === */
-
-.gitbook-content h1 {
-  font-size: 2.4em;
-  color: var(--royal-purple);
-  margin-bottom: 20px;
-  border-bottom: 3px solid var(--powder-blue);
-  padding-bottom: 10px;
-}
-
-.gitbook-content h2 {
-  font-size: 1.5em;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  color: var(--ultra-violet);
-}
-
-.gitbook-content section {
-  margin-bottom: 60px;
-}
-
-/* === DARK MODE SUPPORT === */
-
-body.dark-mode .gitbook-sidebar {
-  background: linear-gradient(to bottom, #1f1f1f, #2c2c2c);
-  color: #fff;
-}
-
-body.dark-mode .gitbook-sidebar nav ul li a {
-  color: #fff;
-}
-
-body.dark-mode .gitbook-sidebar nav ul li a:hover,
-body.dark-mode .gitbook-sidebar nav ul li a.active {
-  background: #744fb6;
-  color: #fff;
-}
-
-body.dark-mode .gitbook-content,
-body.dark-mode .main-content {
-  background: #121212;
-  color: #fff;
-}
-
-body.dark-mode .gitbook-content h1 {
-  color: #d6a2ee;
-  border-color: #8591e2;
-}
-
-body.dark-mode .gitbook-content h2 {
-  color: #c494c5;
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  .gitbook-wrapper {
-    flex-direction: column;
-  }
-
-  .gitbook-sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  .main-content {
-    padding: 30px 20px;
-  }
-}
-
+/* === SIDEBAR DROITE === */
 .gitbook-sidebar-right {
   width: 300px;
   min-width: 300px;
@@ -242,38 +195,22 @@ body.dark-mode .gitbook-content h2 {
   height: 100vh;
   overflow-y: auto;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
 }
 
-.search-box {
-  margin-bottom: 20px;
-}
-
-.search-box input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  color: #333;
-}
-
-#searchResults {
-  margin-top: 10px;
-  font-size: 0.95rem;
-}
-
-#searchResults a {
+/* === HEADINGS SIDEBAR === */
+.headingsSidebar .heading-link {
   display: block;
+  margin-bottom: 10px;
   color: white;
+  font-size: 0.9rem;
   text-decoration: none;
-  padding: 8px 0;
 }
 
-#searchResults a:hover {
+.headingsSidebar .heading-link:hover {
   text-decoration: underline;
+  color: #e0e0e0;
 }
-
 
 .gitbook-footer {
   position: fixed;
@@ -289,15 +226,48 @@ body.dark-mode .gitbook-content h2 {
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.headingsSidebar .heading-link {
-  display: block;
-  margin-bottom: 100px;
-  color: white;
-  font-size: 0.9rem;
-  text-decoration: none;
+.search-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #333;
 }
 
-.headingsSidebar .heading-link:hover {
-  text-decoration: underline;
-  color: #e0e0e0;
+/* === Responsive === */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+  }
+
+  .gitbook-wrapper {
+    flex-direction: column;
+  }
+
+  .gitbook-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 999;
+    transform: translateX(-100%);
+  }
+
+  .gitbook-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .gitbook-sidebar-right {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    padding: 15px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
 }

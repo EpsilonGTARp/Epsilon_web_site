@@ -300,3 +300,16 @@ body.dark-mode p {
   color: var(--highlight-color);
   text-decoration: underline;
 }
+
+/* Force la couleur dark sur les sidebars et le contenu central */
+body.dark-mode .gitbook-sidebar,
+body.dark-mode .gitbook-sidebar-right {
+  background: linear-gradient(to bottom, #21174C, #362661) !important;
+  color: #D6A2EE !important;
+}
+
+body.dark-mode .main-content,
+body.dark-mode #gitbook-content {
+  background: linear-gradient(to bottom, #21174C, #362661) !important;
+  color: #D6A2EE !important;
+}

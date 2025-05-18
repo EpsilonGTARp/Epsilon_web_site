@@ -1,15 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === THÈME SOMBRE/LUMINEUX ===
   const toggle = document.getElementById("dark-toggle");
   const body = document.body;
 
+  // === INITIALISATION DU THÈME ===
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
-    body.classList.add("dark-mode");
-    body.setAttribute("data-theme", "dark");
-    if (toggle) toggle.textContent = "☀️";
+    enableDarkMode();
   } else {
-    body.setAttribute("data-theme", "light");
+    disableDarkMode();
   }
 
   if (toggle) {
@@ -21,7 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === BARRE DE RECHERCHE DE LA SIDEBAR DROITE ===
+  function enableDarkMode() {
+    body.classList.add("dark-mode");
+    body.setAttribute("data-theme", "dark");
+    if (toggle) toggle.textContent = "☀️";
+  }
+
+  function disableDarkMode() {
+    body.classList.remove("dark-mode");
+    body.setAttribute("data-theme", "light");
+    if (toggle) toggle.textContent = "🌙";
+  }
+
+  // === BARRE DE RECHERCHE ===
   const pages = [
     { title: "01 | LE REGLEMENT DISCORD", href: "sections/01_reglement_discord.html" },
     { title: "02 | LE REGLEMENT GENERAL", href: "sections/02_reglement_general.html" },
@@ -102,8 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         mainContent.innerHTML = newContent.innerHTML;
 
-        // ❌ Supprimé volontairement pour ne pas modifier l’URL :
-        // window.history.pushState(null, '', url);
+        // Réappliquer le dark mode si actif
+        if (body.classList.contains("dark-mode")) {
+          enableDarkMode();
+        }
 
         injectHeadingsSidebar();
 
@@ -118,18 +130,15 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch(error => {
         console.error('Erreur de chargement :', error);
-        mainContent.innerHTML = `<div class="main-error">Erreur de chargement de la page whitelist.<br><small>${error.message}</small></div>`;
+        mainContent.innerHTML = `<div class="main-error">Erreur de chargement de la page.<br><small>${error.message}</small></div>`;
       });
   }
 
-  // Sidebar gauche + liens next
+  // Navigation dynamique
   document.querySelectorAll('.gitbook-sidebar a, .next-link').forEach(link => {
     link.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
-
-      // ✅ Exception pour les liens vers index.html → navigation normale
       if (href && href.includes("index.html")) return;
-
       if (href && !href.startsWith('#')) {
         e.preventDefault();
         loadPage(href);
@@ -137,12 +146,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Bouton retour navigateur
+  // Gestion bouton retour
   window.addEventListener('popstate', () => {
     loadPage(location.pathname);
   });
 
-  // === CHARGER LA PAGE WHITELIST PAR DÉFAUT ===
+  // Page par défaut
   const currentPage = window.location.pathname.split("/").pop();
   if (currentPage === "gitbook.html") {
     loadPage("sections/whitelist.html");

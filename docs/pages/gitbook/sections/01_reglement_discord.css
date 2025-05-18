@@ -1,3 +1,7 @@
+:root {
+  --royal-purple: #744FB6;
+}
+
 .main-content {
   background-color: #f7f6ff;
   padding: 40px;
@@ -36,14 +40,6 @@
   line-height: 1.6;
 }
 
-.highlight {
-  background-color: #D6A2EE;
-  padding: 2px 6px;
-  border-radius: 4px;
-  color: #21174C;
-  font-weight: bold;
-}
-
 .pagination {
   margin-top: 40px;
   display: flex;
@@ -66,4 +62,8 @@
 .pagination a:hover {
   text-decoration: underline;
   color: #744FB6;
+}
+
+.text-purple {
+  color: var(--royal-purple) !important;
 }
