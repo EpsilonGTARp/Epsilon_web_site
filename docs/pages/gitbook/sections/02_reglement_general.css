@@ -1,0 +1,70 @@
+:root {
+  --royal-purple: #744FB6;
+}
+
+.main-content {
+  background-color: #f7f6ff;
+  padding: 40px;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 900px;
+  box-shadow: 0 4px 20px rgba(117, 79, 182, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  color: #21174C;
+}
+
+.main-content h1 {
+  font-size: 2.2em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #21174C;
+}
+
+.section-icon {
+  font-size: 1.3em;
+}
+
+.main-content h2 {
+  margin-top: 30px;
+  color: #21174C;
+  font-size: 1.4em;
+  border-left: 4px solid #744FB6;
+  padding-left: 10px;
+}
+
+.main-content p {
+  margin: 10px 0;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  background: #fefefe;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 0.95em;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.pagination a {
+  color: #21174C;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.pagination a:hover {
+  text-decoration: underline;
+  color: #744FB6;
+}
+
+.text-purple {
+  color: var(--royal-purple) !important;
+  font-weight: bold;
+}

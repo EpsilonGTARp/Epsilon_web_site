@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === BARRE DE RECHERCHE ===
   const pages = [
-    { title: "01 | LE REGLEMENT DISCORD", href: "sections/01_reglement_discord.html" },
-    { title: "02 | LE REGLEMENT GENERAL", href: "sections/02_reglement_general.html" },
-    { title: "03 | LE VOCABULAIRE RP", href: "sections/03_vocabulaire.html" },
-    { title: "04 | LES STREAMERS", href: "sections/04_les_streamers.html" },
+    { title: "01 | LE REGLEMENT DISCORD", href: "pages/gitbook/sections/01_reglement_discord.html" },
+    { title: "02 | LE REGLEMENT GENERAL", href: "pages/gitbook/sections/02_reglement_general.html" },
+    { title: "03 | LE VOCABULAIRE RP", href: "pages/gitbook/sections/03_vocabulaire.html" },
+    { title: "04 | LES STREAMERS", href: "pages/gitbook/sections/04_les_streamers.html" },
     { title: "05 | LE LEGAL", href: "sections/05_legal.html" },
     { title: "06 | L'ILLEGAL", href: "sections/06_illegal.html" },
   ];
