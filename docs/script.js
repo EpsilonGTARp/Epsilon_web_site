@@ -33,12 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === BARRE DE RECHERCHE ===
   const pages = [
-    { title: "01 | LE REGLEMENT DISCORD", href: "pages/gitbook/sections/01_reglement_discord.html" },
-    { title: "02 | LE REGLEMENT GENERAL", href: "pages/gitbook/sections/02_reglement_general.html" },
-    { title: "03 | LE VOCABULAIRE RP", href: "pages/gitbook/sections/03_vocabulaire.html" },
-    { title: "04 | LES STREAMERS", href: "pages/gitbook/sections/04_les_streamers.html" },
-    { title: "05 | LE LEGAL", href: "sections/05_legal.html" },
-    { title: "06 | L'ILLEGAL", href: "sections/06_illegal.html" },
+    { title: "01 | LE REGLEMENT DISCORD", href: "pages/gitbook/sections/01_reglement_discord.html", css: "pages/gitbook/sections/01_reglement_discord.css" },
+    { title: "02 | LE REGLEMENT GENERAL", href: "pages/gitbook/sections/02_reglement_general.html", css: "pages/gitbook/sections/02_reglement_general.css" },
+    { title: "03 | LE VOCABULAIRE RP", href: "pages/gitbook/sections/03_vocabulaire.html", css: "pages/gitbook/sections/03_vocabulaire.css" },
+    { title: "04 | LES STREAMERS", href: "pages/gitbook/sections/04_les_streamers.html", css: "pages/gitbook/sections/04_les_streamers.css" },
+    { title: "05 | LE LEGAL", href: "pages/gitbook/sections/05_legal.html", css: "pages/gitbook/sections/05_legal.css" },
+    { title: "06 | L'ILLEGAL", href: "pages/gitbook/sections/06_illegal.html", css: "pages/gitbook/sections/06_illegal.css" },
   ];
 
   const input = document.getElementById('searchInput');
@@ -98,6 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const baseUrl = url.split("#")[0];
     const hash = url.includes("#") ? url.split("#")[1] : null;
 
+    //  Sauvegarder la page visitée
+    localStorage.setItem("lastPage", baseUrl);
+
     fetch(baseUrl)
       .then(response => {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -112,7 +115,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         mainContent.innerHTML = newContent.innerHTML;
 
-        // Réappliquer le dark mode si actif
+        const currentPage = pages.find(p => p.href === baseUrl);
+        if (currentPage && currentPage.css) {
+          const existingCSS = document.getElementById("dynamic-css");
+          if (existingCSS) existingCSS.remove();
+
+          const cssLink = document.createElement("link");
+          cssLink.rel = "stylesheet";
+          cssLink.href = currentPage.css;
+          cssLink.id = "dynamic-css";
+          document.head.appendChild(cssLink);
+        }
+
         if (body.classList.contains("dark-mode")) {
           enableDarkMode();
         }
@@ -151,9 +165,14 @@ document.addEventListener("DOMContentLoaded", () => {
     loadPage(location.pathname);
   });
 
-  // Page par défaut
+  // === Page par défaut ===
   const currentPage = window.location.pathname.split("/").pop();
   if (currentPage === "gitbook.html") {
-    loadPage("sections/whitelist.html");
+    const lastPage = localStorage.getItem("lastPage");
+    if (lastPage) {
+      loadPage(lastPage);
+    } else {
+      loadPage("sections/whitelist.html");
+    }
   }
 });

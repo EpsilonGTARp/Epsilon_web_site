@@ -313,3 +313,7 @@ body.dark-mode #gitbook-content {
   background: linear-gradient(to bottom, #21174C, #362661) !important;
   color: #D6A2EE !important;
 }
+.text-purple {
+  color: var(--royal-purple) !important;
+  font-weight: bold;
+}
