@@ -48,15 +48,18 @@ main {
 }
 
 /* === DARK MODE TOGGLE === */
-#dark-toggle {
+.dark-toggle-wrapper {
   position: absolute;
   top: 20px;
   right: 20px;
+  z-index: 2;
+}
+
+#dark-toggle {
   background: none;
   border: none;
   font-size: 1.8em;
   cursor: pointer;
-  z-index: 1001;
   color: #ffffff;
   transition: transform 0.2s ease-in-out;
 }
@@ -76,6 +79,26 @@ header {
   color: var(--white);
   text-align: center;
   position: relative;
+  overflow: hidden;
+}
+
+/* IMAGE EN FILIGRANE */
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("assets/los_santos.png") center center / cover no-repeat;
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+header .logo-header-wrapper,
+header .hero {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -96,7 +119,7 @@ header {
   animation-delay: 1.2s;
 }
 
-/* === BOUTONS PRINCIPAUX EN DESSOUS DU HEADER === */
+/* === BOUTONS === */
 .buttons-container {
   display: flex;
   justify-content: center;
@@ -109,28 +132,34 @@ header {
 }
 
 .btn {
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 10px;
   display: inline-block;
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary {
+.btn-primary,
+.btn-topserveur {
   background: linear-gradient(to right, var(--royal-purple), var(--vista-blue));
   color: var(--white);
   border: none;
 }
 
 .btn-discord {
-  background: linear-gradient(to right, #5865F2, var(--vista-blue));
+  background: linear-gradient(to right, #5865F2, #7289DA);
   color: var(--white);
   border: none;
 }
 
 .btn-secondary {
-  background: linear-gradient(to right, #ffffff, #f8f8ff);
+  background: linear-gradient(to right, #f5f4ff, #ebe9fa);
   color: var(--royal-purple);
   border: 2px solid var(--royal-purple);
 }
@@ -138,6 +167,57 @@ header {
 .btn:hover {
   transform: scale(1.05);
   opacity: 0.95;
+}
+
+/* === DARK MODE === */
+body.dark-mode {
+  background: #000000;
+  color: #ffffff;
+}
+
+body.dark-mode header {
+  background: linear-gradient(to right, #21174C, #362661);
+}
+
+body.dark-mode .footer {
+  background: #21174C;
+  color: #ffffff;
+}
+
+body.dark-mode .card,
+body.dark-mode .reglement-card {
+  background: #362661 !important;
+  color: #D6A2EE;
+  box-shadow: 0 10px 25px rgba(214, 162, 238, 0.08);
+}
+
+body.dark-mode .card h3,
+body.dark-mode .card p {
+  color: #D6A2EE;
+}
+
+body.dark-mode .btn-primary,
+body.dark-mode .btn-topserveur {
+  background: linear-gradient(to right, #362661, #744FB6);
+  color: #ffffff;
+}
+
+body.dark-mode .btn-discord {
+  background: linear-gradient(to right, #5865F2, #7289DA);
+  color: #ffffff;
+}
+
+body.dark-mode .btn-secondary {
+  background: #1e1e2f;
+  color: #D6A2EE;
+  border: 2px solid #744FB6;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+  color: #ffffff;
 }
 
 /* === SECTION À PROPOS === */
@@ -235,52 +315,31 @@ header {
   }
 }
 
-/* === DARK MODE === */
-body.dark-mode {
-  background: #000000;
-  color: #ffffff;
+/* === COULEURS SPÉCIALES === */
+.text-purple {
+  color: var(--royal-purple) !important;
+  font-weight: bold;
 }
 
-body.dark-mode header {
-  background: linear-gradient(to right, #21174C, #362661);
+.text-blue {
+  color: #4285f4;
+  font-weight: bold;
 }
 
-body.dark-mode .footer {
-  background: #21174C;
-  color: #ffffff;
+.text-red {
+  color: #e63946;
+  font-weight: bold;
 }
 
-body.dark-mode .card,
-body.dark-mode .reglement-card {
-  background: #362661 !important;
-  color: #D6A2EE;
-  box-shadow: 0 10px 25px rgba(214, 162, 238, 0.08);
+mark.highlight {
+  background-color: #ffe66d;
+  color: #000;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 1px 3px;
 }
 
-body.dark-mode .card h3,
-body.dark-mode .card p {
-  color: #D6A2EE;
-}
-
-body.dark-mode .btn-primary,
-body.dark-mode .btn-discord {
-  background: linear-gradient(to right, #362661, #744FB6);
-  color: #ffffff;
-}
-
-body.dark-mode .btn-secondary {
-  background: #1e1e2f;
-  color: #D6A2EE;
-  border: 2px solid #744FB6;
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode p {
-  color: #ffffff;
-}
-
+/* === SIDEBARS DARK === */
 .headings-sidebar {
   margin-top: 1rem;
   padding: 0 1rem;
@@ -301,7 +360,6 @@ body.dark-mode p {
   text-decoration: underline;
 }
 
-/* Force la couleur dark sur les sidebars et le contenu central */
 body.dark-mode .gitbook-sidebar,
 body.dark-mode .gitbook-sidebar-right {
   background: linear-gradient(to bottom, #21174C, #362661) !important;
@@ -312,27 +370,4 @@ body.dark-mode .main-content,
 body.dark-mode #gitbook-content {
   background: linear-gradient(to bottom, #21174C, #362661) !important;
   color: #D6A2EE !important;
-}
-.text-purple {
-  color: var(--royal-purple) !important;
-  font-weight: bold;
-}
-/* Texte bleu pour LSPD */
-.text-blue {
-  color: #4285f4;
-  font-weight: bold;
-}
-
-/* Texte rouge pour EMS */
-.text-red {
-  color: #e63946;
-  font-weight: bold;
-}
-
-mark.highlight {
-  background-color: #ffe66d;
-  color: #000;
-  font-weight: bold;
-  border-radius: 4px;
-  padding: 1px 3px;
 }
