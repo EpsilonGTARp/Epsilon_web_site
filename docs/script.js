@@ -39,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { title: "04 | LES STREAMERS", href: "pages/gitbook/sections/04_les_streamers.html", css: "pages/gitbook/sections/04_les_streamers.css" },
     { title: "05 | LE LEGAL", href: "pages/gitbook/sections/05_legal.html", css: "pages/gitbook/sections/05_legal.css" },
     { title: "06 | L'ILLEGAL", href: "pages/gitbook/sections/06_illegal.html", css: "pages/gitbook/sections/06_illegal.css" },
+    { title: "06 | L'ILLEGAL", href: "pages/gitbook/sections/informations_douanes.html", css: "pages/gitbook/sections/informations_douanes.css" },
+
   ];
 
   const input = document.getElementById('searchInput');

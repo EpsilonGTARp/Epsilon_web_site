@@ -317,3 +317,14 @@ body.dark-mode #gitbook-content {
   color: var(--royal-purple) !important;
   font-weight: bold;
 }
+/* Texte bleu pour LSPD */
+.text-blue {
+  color: #4285f4;
+  font-weight: bold;
+}
+
+/* Texte rouge pour EMS */
+.text-red {
+  color: #e63946;
+  font-weight: bold;
+}
