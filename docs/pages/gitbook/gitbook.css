@@ -1,5 +1,4 @@
 /* === GITBOOK CUSTOM STYLE === */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
@@ -25,6 +24,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+/* === WRAPPER PRINCIPAL === */
 .gitbook-wrapper {
   display: flex;
   flex: 1;
@@ -73,14 +73,6 @@ body {
   z-index: 10;
 }
 
-.gitbook-sidebar h2,
-.gitbook-sidebar .sidebar-header h4 {
-  font-size: 1.4em;
-  margin-bottom: 20px;
-  text-align: center;
-  color: var(--white);
-}
-
 .gitbook-sidebar nav ul {
   list-style: none;
   padding: 0;
@@ -95,9 +87,6 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   text-decoration: none;
   color: var(--white);
   padding: 10px 12px;
@@ -118,8 +107,8 @@ body {
   font-size: 0.95em;
   font-weight: bold;
   text-transform: uppercase;
-  opacity: 0.9;
   color: var(--white);
+  opacity: 0.9;
 }
 
 /* === MAIN CONTENT === */
@@ -127,11 +116,20 @@ body {
 .main-content {
   flex: 1;
   padding: 50px 40px;
-  background-color: var(--main-light);
+  background-color: var(--white);
   color: var(--russian-violet);
   max-width: 900px;
   margin: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 10px 40px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+body[data-theme='dark'] .gitbook-content,
+body[data-theme='dark'] .main-content {
+  background-color: var(--main-dark);
+  color: #f0f0f0;
+  box-shadow: none;
 }
 
 .main-content h1 {
@@ -141,12 +139,21 @@ body {
   color: #1f1f1f;
 }
 
+body[data-theme='dark'] .main-content h1 {
+  color: #ffffff;
+}
+
 .main-content p {
   font-size: 1rem;
   color: #333;
   line-height: 1.6;
 }
 
+body[data-theme='dark'] .main-content p {
+  color: #ccc;
+}
+
+/* === NEXT SECTION === */
 .next-section {
   border: 1px solid #e2e2e2;
   background-color: #fcfcfc;
@@ -186,7 +193,6 @@ body {
 /* === SIDEBAR DROITE === */
 .gitbook-sidebar-right {
   width: 300px;
-  min-width: 300px;
   background: linear-gradient(to bottom, var(--royal-purple), var(--vista-blue));
   color: white;
   padding: 30px 20px;
@@ -194,8 +200,6 @@ body {
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
 }
 
 /* === HEADINGS SIDEBAR === */
@@ -212,6 +216,7 @@ body {
   color: #e0e0e0;
 }
 
+/* === FOOTER === */
 .gitbook-footer {
   position: fixed;
   bottom: 0;
@@ -226,6 +231,7 @@ body {
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* === SEARCH BOX IN SIDEBAR === */
 .search-box input {
   width: 100%;
   padding: 10px;
@@ -236,7 +242,7 @@ body {
   color: #333;
 }
 
-/* === Responsive === */
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   .burger-menu {
     display: block;
@@ -270,4 +276,106 @@ body {
   .main-content {
     padding: 20px;
   }
+}
+
+/* === OVERLAY DE RECHERCHE === */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-overlay.hidden {
+  display: none;
+}
+
+.overlay-content {
+  width: 80%;
+  max-width: 600px;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+body[data-theme='dark'] .overlay-content {
+  background: #1e1b2e;
+  color: #f5f5f5;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: white;
+  color: black;
+}
+
+body[data-theme='dark'] .search-input {
+  background-color: #2d2049;
+  color: white;
+  border: 2px solid #555;
+}
+
+.search-results a {
+  display: block;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.search-results a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+body[data-theme='dark'] .search-results a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.search-result-title {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+  color: #2d2049;
+}
+
+body[data-theme='dark'] .search-result-title {
+  color: #e0e0ff;
+}
+
+.search-result-snippet {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+body[data-theme='dark'] .search-result-snippet {
+  color: #aaa;
+}
+
+#closeOverlay {
+  margin-top: 1rem;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #ccc;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+body[data-theme='dark'] #closeOverlay {
+  background-color: #333;
+  color: white;
 }

@@ -25,7 +25,7 @@ html, body {
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, var(--bg-light), #ffffff);
+  background: #ffffff;
   color: var(--russian-violet);
 }
 
@@ -327,4 +327,12 @@ body.dark-mode #gitbook-content {
 .text-red {
   color: #e63946;
   font-weight: bold;
+}
+
+mark.highlight {
+  background-color: #ffe66d;
+  color: #000;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 1px 3px;
 }

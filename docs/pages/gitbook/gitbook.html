@@ -5,16 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GitBook - Epsilon RP</title>
 
-  <!-- CSS principal DOIT ÊTRE LE DERNIER pour que dark-mode soit appliqué -->
- <!-- Après (BON) -->
-<link rel="stylesheet" href="../../style.css">
-<link rel="stylesheet" href="gitbook.css">
-
-
+  <!-- CSS -->
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="gitbook.css">
   <script defer src="../../../script.js"></script>
 </head>
 <body>
-  <!-- ⚡️ Activation dark mode si défini -->
+  <!-- ⚡️ Activation dark mode -->
   <script>
     if (localStorage.getItem('theme') === 'dark') {
       document.body.classList.add('dark-mode');
@@ -22,54 +19,53 @@
     }
   </script>
 
-  <!-- Wrapper principal avec les 3 zones -->
   <div class="gitbook-wrapper">
     <!-- Sidebar gauche -->
     <aside class="gitbook-sidebar">
       <div class="logo-wrapper" style="text-align: center;">
-        <a href="http://localhost:8000/index.html" style="display: inline-block;">
+        <a href="http://localhost:8000/index.html">
           <img src="../../assets/logo.png" alt="Logo Epsilon" class="logo-small" />
         </a>
         <div class="logo-text" style="margin-top: 10px;">
-          <a href="http://localhost:8000/index.html" style="color: white; text-decoration: none; font-weight: bold;">EPSILON RP</a>
+          <a href="http://localhost:8000/index.html" style="color: white; font-weight: bold;">EPSILON RP</a>
           <span style="color: white;"> || </span>
-          <a href="/pages/gitbook/sections/whitelist.html" style="color: white; text-decoration: none; font-weight: bold;">WHITELIST</a>
+          <a href="/pages/gitbook/sections/whitelist.html" style="color: white; font-weight: bold;">WHITELIST</a>
         </div>
       </div>
 
       <nav>
         <ul>
           <li class="section-title red">🔴 LES INDISPENSABLES</li>
-          <li><a href="/pages/gitbook/sections/01_reglement_discord.html"><span class="icon">🎮</span> 01 | LE REGLEMENT DISCORD</a></li>
-          <li><a href="/pages/gitbook/sections/02_reglement_general.html"><span class="icon">📜</span> 02 | LE REGLEMENT GENERAL</a></li>
-          <li><a href="/pages/gitbook/sections/03_vocabulaire.html"><span class="icon">🗣️</span> 03 | LE VOCABULAIRE RP</a></li>
-          <li><a href="/pages/gitbook/sections/04_les_streamers.html"><span class="icon">📺</span> 04 | LES STREAMERS</a></li>
-          <li><a href="/pages/gitbook/sections/05_legal.html"><span class="icon">✨</span> 05 | LE LEGAL</a></li>
-          <li><a href="/pages/gitbook/sections/06_illegal.html"><span class="icon">⚖️</span> 06 | L'ILLEGAL</a></li>
+          <li><a href="/pages/gitbook/sections/01_reglement_discord.html">🎮 01 | LE REGLEMENT DISCORD</a></li>
+          <li><a href="/pages/gitbook/sections/02_reglement_general.html">📜 02 | LE REGLEMENT GENERAL</a></li>
+          <li><a href="/pages/gitbook/sections/03_vocabulaire.html">🗣️ 03 | LE VOCABULAIRE RP</a></li>
+          <li><a href="/pages/gitbook/sections/04_les_streamers.html">📻 04 | LES STREAMERS</a></li>
+          <li><a href="/pages/gitbook/sections/05_legal.html">✨ 05 | LE LEGAL</a></li>
+          <li><a href="/pages/gitbook/sections/06_illegal.html">⚖️ 06 | L'ILLEGAL</a></li>
 
           <li class="section-title blue">🔵 LES GUIDES DISCORD</li>
-          <li><a href="/pages/gitbook/sections/informations_douanes.html"><span class="icon">🛃</span> 01 | INFORMATIONS DOUANES</a></li>
-          <li><a href="/pages/gitbook/sections/acceder_au_serveur.html"><span class="icon">⏰</span> 02 | ACCEDER AU SERVEUR</a></li>
+          <li><a href="/pages/gitbook/sections/informations_douanes.html">🛫 01 | INFORMATIONS DOUANES</a></li>
+          <li><a href="/pages/gitbook/sections/acceder_au_serveur.html">⏰ 02 | ACCEDER AU SERVEUR</a></li>
 
           <li class="section-title yellow">🟡 GUIDE BASE</li>
-          <li><a href="/pages/gitbook/sections/aeroport.html"><span class="icon">🛫</span> 01 | AEROPORT</a></li>
+          <li><a href="/pages/gitbook/sections/aeroport.html">🛫 01 | AEROPORT</a></li>
 
           <li class="section-title purple">🟣 GUIDE DE L'ILLEGAL</li>
-          <li><a href="/pages/gitbook/sections/debuts.html"><span class="icon">🚶</span> 00 | MES DEBUTS</a></li>
-          <li><a href="/pages/gitbook/sections/drogues.html"><span class="icon">🌿</span> 01 | LES DROGUES</a></li>
-          <li><a href="/pages/gitbook/sections/vols_vehicules.html"><span class="icon">🚗</span> 02 | LES VOLS DE VEHICULES</a></li>
-          <li><a href="/pages/gitbook/sections/cambriolages.html"><span class="icon">🏠</span> 03 | LES CAMBRIOLAGES</a></li>
-          <li><a href="/pages/gitbook/sections/braquages.html"><span class="icon">🏦</span> 04 | LES BRAQUAGES</a></li>
-          <li><a href="/pages/gitbook/sections/gofast.html"><span class="icon">🏎️</span> 05 | LES GO-FAST</a></li>
-          <li><a href="/pages/gitbook/sections/street_races.html"><span class="icon">🏁</span> 06 | LES STREET RACES</a></li>
+          <li><a href="/pages/gitbook/sections/debuts.html">🚶 00 | MES DEBUTS</a></li>
+          <li><a href="/pages/gitbook/sections/drogues.html">🌿 01 | LES DROGUES</a></li>
+          <li><a href="/pages/gitbook/sections/vols_vehicules.html">🚗 02 | LES VOLS DE VEHICULES</a></li>
+          <li><a href="/pages/gitbook/sections/cambriolages.html">🏠 03 | LES CAMBRIOLAGES</a></li>
+          <li><a href="/pages/gitbook/sections/braquages.html">🏦 04 | LES BRAQUAGES</a></li>
+          <li><a href="/pages/gitbook/sections/gofast.html">🏎️ 05 | LES GO-FAST</a></li>
+          <li><a href="/pages/gitbook/sections/street_races.html">🏋️ 06 | LES STREET RACES</a></li>
 
           <li class="section-title orange">🟠 PROBLEMES TECHNIQUES</li>
-          <li><a href="/pages/gitbook/sections/personnage.html"><span class="icon">➡️</span> Création de mon personnage</a></li>
+          <li><a href="/pages/gitbook/sections/personnages.html">➡️ Création de mon personnage</a></li>
         </ul>
       </nav>
     </aside>
 
-    <!-- Contenu principal dynamique -->
+    <!-- Contenu principal -->
     <main id="gitbook-content" class="main-content">
       <p>Chargement du contenu...</p>
     </main>
@@ -77,11 +73,19 @@
     <!-- Sidebar droite -->
     <aside class="gitbook-sidebar-right">
       <div class="search-box">
-        <input type="text" id="searchInput" placeholder="🔍 Rechercher une page..." />
+        <input type="text" id="searchInputSidebar" placeholder="🔍 Rechercher une page..." />
       </div>
-      <div id="searchResults"></div>
       <div id="headingsSidebar" class="headings-sidebar"></div>
     </aside>
+  </div>
+
+  <!-- Overlay central de recherche -->
+  <div id="searchOverlay" class="search-overlay hidden">
+    <div class="overlay-content">
+      <input type="text" id="searchInputOverlay" class="search-input" placeholder="🔍 Tapez pour chercher..." />
+      <div id="searchResultsOverlay" class="search-results"></div>
+      <button id="closeOverlay">Fermer</button>
+    </div>
   </div>
 
   <!-- Footer -->
