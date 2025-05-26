@@ -28,23 +28,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const pages = [
-    { title: "01 | LE REGLEMENT DISCORD", href: "sections/01_reglement_discord.html", css: "sections/01_reglement_discord.css" },
-    { title: "02 | LE REGLEMENT GENERAL", href: "sections/02_reglement_general.html", css: "sections/02_reglement_general.css" },
-    { title: "03 | LE VOCABULAIRE RP", href: "sections/03_vocabulaire.html", css: "sections/03_vocabulaire.css" },
-    { title: "04 | LES STREAMERS", href: "sections/04_les_streamers.html", css: "sections/04_les_streamers.css" },
-    { title: "05 | LE LEGAL", href: "sections/05_legal.html", css: "sections/05_legal.css" },
-    { title: "06 | L'ILLEGAL", href: "sections/06_illegal.html", css: "sections/06_illegal.css" },
-    { title: "01 | INFORMATIONS DOUANES", href: "sections/informations_douanes.html", css: "sections/informations_douanes.css" },
-    { title: "02 | ACCEDER AU SERVEUR", href: "sections/acceder_au_serveur.html", css: "sections/acceder_au_serveur.css" },
-    { title: "01 | AEROPORT", href: "sections/aeroport.html", css: "sections/aeroport.css" },
-    { title: "00 | MES DEBUTS", href: "sections/debuts.html", css: "sections/debuts.css" },
-    { title: "01 | LES DROGUES", href: "sections/drogues.html", css: "sections/drogues.css" },
-    { title: "02 | LES VOLS DE VEHICULES", href: "sections/vols_vehicules.html", css: "sections/vols_vehicules.css" },
-    { title: "03 | LES CAMBRIOLAGES", href: "sections/cambriolages.html", css: "sections/cambriolages.css" },
-    { title: "04 | LES BRAQUAGES", href: "sections/braquages.html", css: "sections/braquages.css" },
-    { title: "05 | LES GO-FAST", href: "sections/gofast.html", css: "sections/gofast.css" },
-    { title: "06 | LES STREET RACES", href: "sections/street_races.html", css: "sections/street_races.css" },
-    { title: "Création de mon personnage", href: "sections/personnage.html", css: "sections/personnage.css" }
+    { title: "01 | LE REGLEMENT DISCORD", href: "/pages/gitbook/sections/01_reglement_discord.html", css: "/pages/gitbook/sections/01_reglement_discord.css" },
+    { title: "02 | LE REGLEMENT GENERAL", href: "/pages/gitbook/sections/02_reglement_general.html", css: "/pages/gitbook/sections/02_reglement_general.css" },
+    { title: "03 | LE VOCABULAIRE RP", href: "/pages/gitbook/sections/03_vocabulaire.html", css: "/pages/gitbook/sections/03_vocabulaire.css" },
+    { title: "04 | LES STREAMERS", href: "/pages/gitbook/sections/04_les_streamers.html", css: "/pages/gitbook/sections/04_les_streamers.css" },
+    { title: "05 | LE LEGAL", href: "/pages/gitbook/sections/05_legal.html", css: "/pages/gitbook/sections/05_legal.css" },
+    { title: "06 | L'ILLEGAL", href: "/pages/gitbook/sections/06_illegal.html", css: "/pages/gitbook/sections/06_illegal.css" },
+    { title: "01 | INFORMATIONS DOUANES", href: "/pages/gitbook/sections/informations_douanes.html", css: "/pages/gitbook/sections/informations_douanes.css" },
+    { title: "02 | ACCEDER AU SERVEUR", href: "/pages/gitbook/sections/acceder_au_serveur.html", css: "/pages/gitbook/sections/acceder_au_serveur.css" },
+    { title: "01 | AEROPORT", href: "/pages/gitbook/sections/aeroport.html", css: "/pages/gitbook/sections/aeroport.css" },
+    { title: "00 | MES DEBUTS", href: "/pages/gitbook/sections/debuts.html", css: "/pages/gitbook/sections/debuts.css" },
+    { title: "01 | LES DROGUES", href: "/pages/gitbook/sections/drogues.html", css: "/pages/gitbook/sections/drogues.css" },
+    { title: "02 | LES VOLS DE VEHICULES", href: "/pages/gitbook/sections/vols_vehicules.html", css: "/pages/gitbook/sections/vols_vehicules.css" },
+    { title: "03 | LES CAMBRIOLAGES", href: "/pages/gitbook/sections/cambriolages.html", css: "/pages/gitbook/sections/cambriolages.css" },
+    { title: "04 | LES BRAQUAGES", href: "/pages/gitbook/sections/braquages.html", css: "/pages/gitbook/sections/braquages.css" },
+    { title: "05 | LES GO-FAST", href: "/pages/gitbook/sections/gofast.html", css: "/pages/gitbook/sections/gofast.css" },
+    { title: "06 | LES STREET RACES", href: "/pages/gitbook/sections/street_races.html", css: "/pages/gitbook/sections/street_races.css" },
+    { title: "Création de mon personnage", href: "/pages/gitbook/sections/personnage.html", css: "/pages/gitbook/sections/personnage.css" }
   ];
 
   const sidebarInput = document.getElementById("searchInputSidebar");
@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("closeOverlay");
   const mainContent = document.querySelector(".main-content");
 
-  // === Gestion de l’overlay de recherche ===
   if (sidebarInput && overlay && overlayInput && overlayResults) {
     sidebarInput.addEventListener("focus", () => {
       overlay.classList.remove("hidden");
@@ -127,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === Génère un extrait de texte autour du mot-clé ===
   function extractSnippet(text, keyword) {
     const lower = text.toLowerCase();
     const index = lower.indexOf(keyword.toLowerCase());
@@ -138,7 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return (start > 0 ? '...' : '') + text.slice(start, end).trim() + (end < text.length ? '...' : '');
   }
 
-  // === Remplissage automatique de la sidebar de droite avec les h2 ===
   function injectHeadingsSidebar() {
     const headingsSidebar = document.getElementById("headingsSidebar");
     if (!headingsSidebar || !mainContent) return;
@@ -164,7 +161,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === Chargement dynamique des pages ===
+  function setActiveSidebarLink(href) {
+    document.querySelectorAll(".gitbook-sidebar a").forEach(link => {
+      if (link.href.includes(href)) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
   function loadPage(href, highlight = "") {
     const baseUrl = href.split("#")[0];
     const hash = href.includes("#") ? href.split("#")[1] : null;
@@ -202,6 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (body.classList.contains("dark-mode")) enableDarkMode();
         injectHeadingsSidebar();
+        setActiveSidebarLink(baseUrl);
 
         if (hash) {
           setTimeout(() => {
@@ -216,7 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // === Navigation interne depuis les menus ===
   document.querySelectorAll(".gitbook-sidebar a, .next-link").forEach((link) => {
     link.addEventListener("click", function (e) {
       const href = this.getAttribute("href");
@@ -227,16 +233,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // === Gestion historique navigateur ===
   window.addEventListener("popstate", () => {
     loadPage(location.pathname);
   });
 
-  // === Chargement initial ===
-  const currentPage = window.location.pathname.split("/").pop();
-  if (currentPage === "gitbook.html") {
-    const lastPage = localStorage.getItem("lastPage");
+  const currentPage = window.location.pathname;
+  const lastPage = localStorage.getItem("lastPage");
+  if (currentPage.includes("gitbook") && mainContent) {
     if (lastPage) loadPage(lastPage);
-    else loadPage("sections/whitelist.html");
+    else loadPage("/pages/gitbook/sections/whitelist.html");
   }
 });
