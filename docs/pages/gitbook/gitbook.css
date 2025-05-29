@@ -379,3 +379,49 @@ body[data-theme='dark'] #closeOverlay {
   background-color: #333;
   color: white;
 }
+
+
+/* === CUSTOM RESPONSIVE ADDITIONS === */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+  }
+
+  .gitbook-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  .gitbook-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .gitbook-sidebar-right {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: var(--white);
+    color: var(--russian-violet);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1100;
+  }
+
+  .gitbook-sidebar-right .headingsSidebar {
+    display: none;
+  }
+
+  body[data-theme='dark'] .gitbook-sidebar-right {
+    background: var(--main-dark);
+    color: #fff;
+  }
+}
