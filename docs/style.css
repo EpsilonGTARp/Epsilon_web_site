@@ -19,19 +19,21 @@
 
 html, body {
   height: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
   font-family: 'Segoe UI', sans-serif;
   background: #ffffff;
   color: var(--russian-violet);
 }
 
-/* === MAIN === */
 main {
   flex: 1;
-  padding: 20px 15px;
 }
 
-/* === LOGO HEADER === */
+/* === LOGO DANS LE HEADER === */
 .logo-header-wrapper {
   display: flex;
   justify-content: center;
@@ -58,19 +60,16 @@ main {
   border: none;
   font-size: 1.8em;
   cursor: pointer;
+  color: #ffffff;
   transition: transform 0.2s ease-in-out;
-}
-
-body:not(.dark-mode) #dark-toggle {
-  color: #000;
-}
-
-body.dark-mode #dark-toggle {
-  color: #fff;
 }
 
 #dark-toggle:hover {
   transform: scale(1.15);
+}
+
+body:not(.dark-mode) #dark-toggle {
+  color: #000000;
 }
 
 /* === HEADER === */
@@ -83,6 +82,7 @@ header {
   overflow: hidden;
 }
 
+/* IMAGE EN FILIGRANE */
 .header-bg {
   position: absolute;
   top: 0;
@@ -149,11 +149,13 @@ header .hero {
 .btn-topserveur {
   background: linear-gradient(to right, var(--royal-purple), var(--vista-blue));
   color: var(--white);
+  border: none;
 }
 
 .btn-discord {
   background: linear-gradient(to right, #5865F2, #7289DA);
   color: var(--white);
+  border: none;
 }
 
 .btn-secondary {
@@ -189,9 +191,20 @@ body.dark-mode .reglement-card {
   box-shadow: 0 10px 25px rgba(214, 162, 238, 0.08);
 }
 
+body.dark-mode .card h3,
+body.dark-mode .card p {
+  color: #D6A2EE;
+}
+
 body.dark-mode .btn-primary,
 body.dark-mode .btn-topserveur {
   background: linear-gradient(to right, #362661, #744FB6);
+  color: #ffffff;
+}
+
+body.dark-mode .btn-discord {
+  background: linear-gradient(to right, #5865F2, #7289DA);
+  color: #ffffff;
 }
 
 body.dark-mode .btn-secondary {
@@ -216,6 +229,9 @@ body.dark-mode p {
 .apropos h2 {
   font-size: 2.2em;
   margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+  display: block;
 }
 
 .cards {
@@ -258,44 +274,18 @@ body.dark-mode p {
 }
 
 /* === RESPONSIVE === */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+  .logo-in-header {
+    width: 80px;
+  }
+
+  .hero h1 {
+    font-size: 2.2em;
+  }
+
   .cards {
     flex-direction: column;
     align-items: center;
-  }
-
-  .hero h1 {
-    font-size: 2em;
-  }
-
-  .hero p {
-    font-size: 1em;
-  }
-
-  .btn {
-    min-width: 120px;
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .card {
-    width: 90%;
-    padding: 15px;
-  }
-
-  .btn {
-    width: 100%;
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-
-  .hero h1 {
-    font-size: 1.8em;
-  }
-
-  .footer {
-    font-size: 0.8em;
   }
 }
 
@@ -325,7 +315,7 @@ body.dark-mode p {
   }
 }
 
-/* === TEXT COLORS === */
+/* === COULEURS SPÉCIALES === */
 .text-purple {
   color: var(--royal-purple) !important;
   font-weight: bold;
@@ -380,17 +370,4 @@ body.dark-mode .main-content,
 body.dark-mode #gitbook-content {
   background: linear-gradient(to bottom, #21174C, #362661) !important;
   color: #D6A2EE !important;
-}
-
-@media (max-width: 768px) {
-  .gitbook-sidebar,
-  .gitbook-sidebar-right {
-    display: none !important;
-  }
-
-  .main-content,
-  #gitbook-content {
-    padding: 20px 10px;
-    font-size: 1rem;
-  }
 }
